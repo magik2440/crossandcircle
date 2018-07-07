@@ -1,17 +1,13 @@
+import javax.swing.*;
 
-public class game{
-        public static void main(String args[]){
-            disp();
-            disp2();
-        }
+public class game
+{
+    public static void main(String args[])
+    {
+        Look game1 = new Look();
+        game1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game1.setVisible(true);
+        //game1.lottery();
 
-        private static void disp()
-        {
-            System.out.println("pierwsze wyswietlenie");
-        }
-
-        private static void disp2()
-        {
-            System.out.println("drugie wysweitlenie");
-        }
     }
+}
