@@ -1,10 +1,12 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Look extends JFrame implements ActionListener
 {
+
     private ImageIcon main_background;
     private Button[] tab_button = new Button[9];
 
@@ -26,8 +28,7 @@ public class Look extends JFrame implements ActionListener
             {
                 tab_button[i] = set_button(x, y, tab_button[i]);
                 x += 100;
-            }
-            else
+            } else
             {
                 x = 8;
                 y += 100;
@@ -39,15 +40,16 @@ public class Look extends JFrame implements ActionListener
 
     /**
      * funkcja do ustawiania przycisku
-     * @param x wspolrzedna x
-     * @param y wspolrzedna y
+     *
+     * @param x      wspolrzedna x
+     * @param y      wspolrzedna y
      * @param button przycisk ktory ustawiamy
      * @return zwraca gotowy przycisk
      */
     private Button set_button(int x, int y, Button button)
     {
         button = new Button("");
-        button.setBounds(x, y, 88,88);
+        button.setBounds(x, y, 88, 88);
         add(button);
         button.addActionListener(this);
         return button;
@@ -55,6 +57,7 @@ public class Look extends JFrame implements ActionListener
 
     /**
      * funckja ktora ustawia grafike obrazkowa
+     *
      * @param g parametr graficzny
      */
     public void paint(Graphics g)
@@ -66,6 +69,7 @@ public class Look extends JFrame implements ActionListener
 
     /**
      * Funckja ktora oblsuguje akcje nacisniecia przycisku
+     *
      * @param e
      */
     @Override
@@ -78,5 +82,6 @@ public class Look extends JFrame implements ActionListener
             //jesi bedzie pusty to -> ustaw button.setName("x lub y")
 
         }
+
     }
 }
