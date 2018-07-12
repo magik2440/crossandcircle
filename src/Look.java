@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 public class Look extends JFrame implements ActionListener
 {
-
+    private static String x_or_o;
     private ImageIcon main_background;
-    private Button[] tab_button = new Button[9];
+    private JButton[] tab_button = new JButton[9];
 
     /**
      * konstruktor ustawiający wyglad okienka
@@ -37,6 +37,7 @@ public class Look extends JFrame implements ActionListener
             }
         }
     }
+    public void setX_or_o(String random_char){x_or_o = random_char;}
 
     /**
      * funkcja do ustawiania przycisku
@@ -46,10 +47,11 @@ public class Look extends JFrame implements ActionListener
      * @param button przycisk ktory ustawiamy
      * @return zwraca gotowy przycisk
      */
-    private Button set_button(int x, int y, Button button)
+    private JButton set_button(int x, int y, JButton button)
     {
-        button = new Button("");
+        button = new JButton("");
         button.setBounds(x, y, 88, 88);
+        button.setBackground(Color.WHITE);
         add(button);
         button.addActionListener(this);
         return button;
@@ -68,6 +70,24 @@ public class Look extends JFrame implements ActionListener
     }
 
     /**
+     * metoda zamienia na kolejna wartosc i zwraca poprzednia
+     * @return x lub o
+     */
+    public String getX_or_o_and_change()
+    {
+        if (x_or_o.equals('o'))
+        {
+            x_or_o = "x";
+            return "o";
+        }
+        else
+        {
+            x_or_o = "o";
+            return "x";
+        }
+    }
+
+    /**
      * Funckja ktora oblsuguje akcje nacisniecia przycisku
      *
      * @param e
@@ -76,12 +96,15 @@ public class Look extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         Object source_button = e.getSource();
-        Button button = (Button) source_button;
-        if (button.getName().equals(""))
+        JButton button = (JButton) source_button;
+        if (button.getText().equals(""))
         {
-            //jesi bedzie pusty to -> ustaw button.setName("x lub y")
+            //jesi bedzie pusty to -> ustaw button.setText(getX_or_o_and_change())
+            //sprawdz czy wygrales
 
         }
+        else
+            System.out.println("zly guzik wcisnales");
 
     }
 }
